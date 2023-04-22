@@ -29,7 +29,7 @@ class OpcionAdapter(private val itemList: List<Opcion>, context: Context) : Recy
             // setOnClickListener para el imageView
             imageView.setOnClickListener {
                 val intent = Intent(itemView.context, Perfil::class.java)
-                Toast.makeText(itemView.context,"Has seleccionado el elemento ${id + 1} " + textView.text, Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context,"Has seleccionado el elemento " + textView.text, Toast.LENGTH_SHORT).show()
 
                 if (textView.text=="Perfil"){
                     itemView.context.startActivity(intent)

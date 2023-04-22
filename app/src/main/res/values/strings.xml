@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Examen2ndo</string>
     <string name="wifi">wifi</string>
+    <string name="gatos">Gatos</string>
+    <string name="bienvenido" />
+    <string name="nombre_del_due_o">Nombre del dueño</string>
+    <string name="nombre_del_gato">Nombre del gato</string>
+    <string name="edad_del_gato">Edad del gato</string>
+    <string name="sin_datos_previos">Sin Datos Previos</string>
 </resources>

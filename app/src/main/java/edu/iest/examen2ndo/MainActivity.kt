@@ -1,6 +1,9 @@
 package edu.iest.examen2ndo
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -25,7 +28,12 @@ class MainActivity : AppCompatActivity() {
         var administradorDeLayouts = GridLayoutManager(this,2)
         recycler.layoutManager = administradorDeLayouts
         recycler.adapter = OpcionAdapter(juegos, this)
-        Toast.makeText(this, "WIFI", Toast.LENGTH_LONG).show()
+        if (connectToInternet()) {
+            Toast.makeText(this, "Conectado", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "No Conectado", Toast.LENGTH_LONG).show()
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -41,6 +49,12 @@ class MainActivity : AppCompatActivity() {
         recycler.adapter = OpcionAdapter(juegos, this)
 
 
+    }
+    private fun connectToInternet(): Boolean {
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+        return isConnected
     }
 
 
